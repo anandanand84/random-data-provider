@@ -114,7 +114,7 @@ var getRandomData = function(options){
     randomData.vehicle = $('#details > div.content > div.info > div > div.extra > dl:nth-child(34) > dd').text();
     randomData.guid = $('#details > div.content > div.info > div > div.extra > dl:nth-child(35) > dd').text();
 
-    //console.log(randomData);
+    return randomData;
 
 }
 
