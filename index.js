@@ -1,11 +1,34 @@
 var deasync = require('deasync');
 var cheerio = require("cheerio");
 
-var getHtml = function(gender,country,nameset){
+var ACCEPTED_GENDER_VALUES = ['male','female','random'];
+var DEFAULT_GENDER_VALUE  = 'random';
 
-    gender = gender || "random";
-    country = country || "us";
-    nameset = nameset || "us";
+var ACCEPTED_COUNTRY_VALUES = ["au", "as", "bg", "br", "ca", "cyen", "cygk", "cz", "dk", "ee", "fi", "fr", "gr", "gl", "hu", "is", "it", "nl", "nz", "no", "pl", "pt", "sl", "za", "sp", "sw", "sz", "tn", "uk", "us", "uy"];
+var DEFAULT_COUNTRY_VALUE = 'us';
+
+var ACCEPTED_NAMESET_VALUES = ["us", "ar", "au", "br", "celat", "ch", "zhtw", "hr", "cs", "dk", "nl", "en", "er", "fi", "fr", "gr", "gl", "sp", "hobbit", "hu", "is", "ig", "it", "jpja", "jp", "tlh", "ninja", "no", "fa", "pl", "ru", "rucyr", "gd", "sl", "sw", "th", "vn"];
+var DEFAULT_NAMESET_VALUE = 'us';
+
+var validateParams = function(param, paramList, defaultvalue){
+    param=param.toLowerCase();
+    if(paramList.indexOf(param)!=-1){
+        return param;
+    }
+    else{
+        console.error('Param '+param+' is not a valid value, using default');
+        return defaultvalue;
+    }
+}
+
+
+var getHtml = function(options){
+
+    var options = options || {};
+
+    var gender  = options.gender ? validateParams(options.gender, ACCEPTED_GENDER_VALUES, DEFAULT_GENDER_VALUE) : DEFAULT_GENDER_VALUE;
+    var country = options.country ? validateParams(options.country, ACCEPTED_COUNTRY_VALUES, DEFAULT_COUNTRY_VALUE) : DEFAULT_COUNTRY_VALUE;
+    var nameset = options.nameset ? validateParams(options.nameset, ACCEPTED_NAMESET_VALUES, DEFAULT_NAMESET_VALUE) : DEFAULT_NAMESET_VALUE;
 
     var html;
 
@@ -13,7 +36,7 @@ var getHtml = function(gender,country,nameset){
 
     var options = {
         host: 'www.fakenamegenerator.com',
-        path: '/gen-random-us-us.php'
+        path: '/gen-'+gender+'-'+nameset+'-'+country+'.php'
     };
 
     callback = function(response) {
@@ -37,13 +60,13 @@ var getHtml = function(gender,country,nameset){
     return html;
 }
 
-var getRandomData = function(gender,country,nameset){
+var getRandomData = function(options){
 
     var randomData = {
 
     };
 
-    var html =  getHtml(gender,country,nameset);
+    var html =  getHtml(options);
     var $ = cheerio.load(html);
 
     var addressData = $('#details > div.content > div.info > div > div.address > div').html();
