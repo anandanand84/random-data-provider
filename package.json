@@ -1,0 +1,58 @@
+{
+  "name": "random-data-generator",
+  "version": "0.1.0",
+  "description": "Generates random data includin name, address, mothers maiden name, geo coordinates, phone, age, birthday, zodiac signs, email, username, password, credit card, employment, height, weight ,tracking number ups western union moneygram, color, vehicle, GUID",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anandanand84/random-data-generator.git"
+  },
+  "keywords": [
+    "Generates",
+    "random",
+    "data",
+    "includin",
+    "name",
+    "address",
+    "mothers",
+    "maiden",
+    "name",
+    "geo",
+    "coordinates",
+    "phone",
+    "age",
+    "birthday",
+    "zodiac",
+    "signs",
+    "email",
+    "username",
+    "password",
+    "credit",
+    "card",
+    "employment",
+    "height",
+    "weight",
+    "tracking",
+    "number",
+    "ups",
+    "western",
+    "union",
+    "moneygram",
+    "color",
+    "vehicle",
+    "GUID"
+  ],
+  "author": "Anand Aravindan <anand.anand84@gmail.com> (http://traderslab.in)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/anandanand84/random-data-generator/issues"
+  },
+  "homepage": "https://github.com/anandanand84/random-data-generator#readme",
+  "dependencies": {
+    "cheerio": "^0.19.0",
+    "deasync": "^0.1.3"
+  }
+}
