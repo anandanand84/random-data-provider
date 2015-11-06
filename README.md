@@ -1,4 +1,4 @@
-# random-data-generator
+# random-data-provider
 
 Generates random data includin name, address, mothers maiden name, geo coordinates, phone, age, birthday, zodiac signs, email, username, password, credit card, employment, height, weight ,tracking number ups western union moneygram, color, vehicle, GUID
 
@@ -7,7 +7,7 @@ All Data are generated from fakenamegenerator.com
 ### Example
 
 ```js
-var DataSource = require('random-data-generator');
+var DataSource = require('random-data-provider');
 
 DataSource.getRandomData([options]);
 
