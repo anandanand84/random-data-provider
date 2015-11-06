@@ -1,6 +1,6 @@
 {
   "name": "random-data-provider",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Generates random data includin name, address, mothers maiden name, geo coordinates, phone, age, birthday, zodiac signs, email, username, password, credit card, employment, height, weight ,tracking number ups western union moneygram, color, vehicle, GUID",
   "main": "index.js",
   "scripts": {
